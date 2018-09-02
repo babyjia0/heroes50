@@ -1,27 +1,33 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+<div id="app">
+  
+    <app-header></app-header>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <app-sidebar></app-sidebar>
+        <span class="ai-playback-pause"></span>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <!--内容 -->
+      <router-view></router-view>
+      </div>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
+//导入AppHeader组件
+import AppHeader from './components/AppHeader.vue';
+//导入AppSidebar组件
+import AppSidebar from './components/AppSidebar.vue';
 export default {
   name: 'app',
+  components:{
+    AppHeader,
+    AppSidebar
+  },
+
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
